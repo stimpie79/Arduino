@@ -24,8 +24,8 @@
   int blue  = 27;      // MKR1010 internal pin
   
 // definitions for WiFi
-  const char ssid[] = "";    // network SSID (name)
-  const char pass[] = "";    // network password (use for WPA, or use as key for WEP)
+  const char ssid[] = "<<SSID>>";    // network SSID (name)
+  const char pass[] = "<<PASSWD>>";    // network password (use for WPA, or use as key for WEP)
   int status = WL_IDLE_STATUS;
   WiFiClient client;
 
@@ -87,7 +87,7 @@ void loop() {
   distance = (duration / 2) * 0.0343;          //distance = sonar.convert_cm(duration);
   
   // GET url with parameters will be parsed by php file
-  sprintf(getStmt,"""GET /arduino/PutData.php?sensor=mazout&comment=%d&distance=%5.2f HTTP/1.0""",runnr,distance);
+  sprintf(getStmt,"""GET /Arduino/PutData.php?sensor=mazout&comment=%d&distance=%5.2f HTTP/1.0""",runnr,distance);
 
   // post the result to the server
   if (client.connect(server, 80)) {
